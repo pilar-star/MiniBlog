@@ -2,6 +2,45 @@ import { Router } from "express";
 import pool from "../db/config.js";
 
 const router = Router();
+  ( 'Las promesas son una forma de simplificar el código asíncrono', 1, false);
+
+let posts = [
+    {
+        id: 1,
+        title: 'Introducción a Node.js',
+        content: 'Node.js es un entorno de ejecución de JavaScript',
+        author_id: 1,
+        published: true
+    },
+    {
+        id: 2,
+        title: 'PostgreSQL vs MySQL',
+        content: 'Ambas son bases de datos con características distintas',
+        author_id: 2,
+        published: true
+    },
+    {
+        id: 3,
+        title: 'APIs RESTful',
+        content: 'REST es un estilo arquitectónico',
+        author_id: 1,
+        published: true
+    },
+    {
+        id: 4,
+        title: 'Manejar errores en Express',
+        content: 'Siempre debe haber un manejo apropiado de errores',
+        author_id: 3,
+        published: false
+    },
+    {
+        id: 5,
+        title: 'Async/Await',
+        content: 'Las promesas son una forma de simplificar el código asíncrono',
+        author_id: 1,
+        published: false
+    }
+];
 
 router.get("/", async (req, res) => {
     const { published } = req.query;
