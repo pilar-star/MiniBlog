@@ -13,8 +13,8 @@ app.get("/", (req, res) => {
     res.json({ message: "Bienvenido al MiniBlog API", version: "1.0"});
 });
 
-app.get("/authors", authorsRouter);
-app.get("/posts", postsRouter);
+app.use("/authors", authorsRouter);
+app.use("/posts", postsRouter);
 
 app.use((req, res) => {
     res.status(404).json({ error: "Ruta no encontrada" });
