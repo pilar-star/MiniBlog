@@ -1,5 +1,5 @@
 import {  describe, test, expect, beforeEach, afterAll } from "vitest";
-import { request } from "supertest";
+import request from "supertest";
 import app from "../src/app.js";
 import pool from "../src/db/config.js";
 
@@ -17,7 +17,7 @@ describe("GET /authors", () => {
         const response = await request(app).get("/authors");
         expect(response.statusCode).toBe(200);
         expect(response.body).toHaveLength(3);
-        expect(response.body).toHaveProperty("id");
+        expect(response.body[0]).toHaveProperty("id");
         expect(response.body[0]).toHaveProperty("name");
         expect(response.body[0]).toHaveProperty("email");
         expect(response.body[0]).toHaveProperty("bio");
@@ -27,16 +27,15 @@ describe("GET /authors/:id", () => {
     test("devuelve un autor por ID", async () => {
         const response = await request(app).get("/authors/1");
         expect(response.statusCode).toBe(200);
-        expect(response.body).toHaveProperty("id");
-        expect(response.body).toHaveProperty("name");
-        expect(response.body).toHaveProperty("email");
-        expect(response.body).toHaveProperty("bio");
+        expect(response.body).toHaveProperty("id", 1);
+        expect(response.body).toHaveProperty("name", "Ana García");
+        expect(response.body).toHaveProperty("email", "ana@example.com");
+        expect(response.body).toHaveProperty("bio", "Desarrolladora full-stack apasionada por Node.js");
     });
 });
 describe("POST /authors", () => {
     test("crea un nuevo autor", async () => {
         const newAuthor = {
-            id: 4,
             name: "Laura Martínez",
             email: "laura@example.com",
             bio: "Ingeniera de software con experiencia en desarrollo web"
