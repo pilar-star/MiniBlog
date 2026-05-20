@@ -8,14 +8,14 @@ export function validarId(id) {
     return null;
 }
 
-export function validarNombre(nombre) {
-    if (!nombre) {
+export function validarNombre(name) {
+    if (!name) {
         return "El campo de nombre es obligatorio.";
     }
-    if (nombre.length < 2) {
+    if (name.length < 2) {
         return "El nombre debe tener al menos 2 caracteres.";
     }
-    if (nombre.length > 100) {
+    if (name.length > 100) {
         return "El nombre no puede tener más de 100 caracteres.";
     }
     return null;
