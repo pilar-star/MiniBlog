@@ -6,6 +6,11 @@ export function errorHandler(err, req, res, next) {
         status: statusCode
      });
 }
+export function asyncError(fn) {
+    return (req, res, next) => {
+        Promise.resolve(fn(req, res, next)).catch(next);
+    };
+}
 export function createError(statusCode, message) {
     const error = new Error(message);
     error.statusCode = statusCode;
