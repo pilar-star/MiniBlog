@@ -10,7 +10,7 @@ info:
 servers:
   - url: http://localhost:3000
     description: Servidor local de desarrollo
-  - url: https://blog-api-production.up.railway.app
+  - url: https://miniblog-production-165f.up.railway.app/
     description: Servidor de producción
 
 components:
