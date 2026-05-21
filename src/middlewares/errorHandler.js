@@ -31,3 +31,5 @@ export function forbidden(message) {
 export function internalError(message) {
     return createError(500, message);
 }
+
+export default errorHandler;
