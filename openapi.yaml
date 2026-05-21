@@ -36,6 +36,26 @@ components:
           format: date-time
           description: Fecha de creación
 
+    Post:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID único del post
+        title:
+          type: string
+          description: Título del post
+        content:
+          type: string
+          description: Contenido del post
+        author_id:
+          type: integer
+          description: ID del autor del post (debe existir en la tabla de autores)
+        created_at:
+          type: string
+          format: date-time
+          description: Fecha de creación
+
     Error:
       type: object
       properties:
