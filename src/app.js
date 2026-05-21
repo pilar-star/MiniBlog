@@ -2,7 +2,7 @@ import express from 'express';
 import router from "./routes/index.js";
 import authorsRouter from "./routes/authorsRouter.js";
 import postsRouter from "./routes/postsRouter.js";
-import { errorHandler } from "./middlewares/errorHandler.js";
+import errorHandler from "./middlewares/errorHandler.js";
 const app = express();
 const Router = express.Router();
 const PORT = process.env.PORT || 3000;
